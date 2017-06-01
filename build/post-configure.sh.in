@@ -66,6 +66,14 @@ if   [ "@fla_vector_intrinsic_type@" = "sse" ] ; then
 echo "   Vector intrinsic type........................ : SSE"
 echo "      SSE C compiler flags...................... : @fla_c_sse_flags@"
 fi
+if   [ "@fla_vector_intrinsic_type@" = "avx" ] ; then
+echo "   Vector intrinsic type........................ : AVX"
+echo "      AVX C compiler flags...................... : @fla_c_avx_flags@"
+fi
+if   [ "@fla_vector_intrinsic_type@" = "avx512" ] ; then
+echo "   Vector intrinsic type........................ : AVX-512"
+echo "      AVX-512 C compiler flags...................... : @fla_c_avx512_flags@"
+fi
 
 echo ""
 echo "Enable memory alignment......................... : @fla_enable_memory_alignment@"

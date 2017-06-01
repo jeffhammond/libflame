@@ -11,7 +11,7 @@ AC_DEFUN([FLA_CHECK_ENABLE_VECTOR_INTRINSICS],
 	dnl --disable-<option>. If so, then run the first snippet of code;
 	dnl otherwise, run the second code block.
 	AC_ARG_ENABLE([vector-intrinsics],
-	              AC_HELP_STRING([--enable-vector-intrinsics=type],[Enable highly-optimized code that relies upon vector intrinsics to specify certain operations at a very low level. Valid values for type are "sse" and "none". Specifying "none" is the same as disabling the option. (Disabled by default.)]),
+	              AC_HELP_STRING([--enable-vector-intrinsics=type],[Enable highly-optimized code that relies upon vector intrinsics to specify certain operations at a very low level. Valid values for type are "none", "sse", "avx", and "avx512". Specifying "none" is the same as disabling the option. (Disabled by default.)]),
 	[
 		dnl If any form of the option is given, handle each case.
 		if test "$enableval" = "sse" ; then
@@ -19,6 +19,18 @@ AC_DEFUN([FLA_CHECK_ENABLE_VECTOR_INTRINSICS],
 			dnl Enable with SSE support.
 			fla_enable_vector_intrinsics=yes
 			fla_vector_intrinsic_type=sse
+
+		elif test "$enableval" = "avx" ; then
+			
+			dnl Enable with AVX support.
+			fla_enable_vector_intrinsics=yes
+			fla_vector_intrinsic_type=avx
+
+		elif test "$enableval" = "avx512" ; then
+			
+			dnl Enable with AVX-512 support.
+			fla_enable_vector_intrinsics=yes
+			fla_vector_intrinsic_type=avx512
 
 		elif test "$enableval" = "no" ; then
 			
