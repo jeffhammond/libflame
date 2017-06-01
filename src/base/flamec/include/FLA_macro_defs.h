@@ -160,6 +160,8 @@
 // FLAME vector intrinsics types
 #define FLA_NO_INTRINSICS       0
 #define FLA_SSE_INTRINSICS      3
+#define FLA_AVX_INTRINSICS      7
+#define FLA_AVX512_INTRINSICS  15
 
 // FLAME internal error checking level
 #define FLA_FULL_ERROR_CHECKING 2

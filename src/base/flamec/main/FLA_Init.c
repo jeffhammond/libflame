@@ -58,7 +58,11 @@ void FLA_Init()
 
   FLA_Cntl_init();
 
-#if FLA_VECTOR_INTRINSIC_TYPE == FLA_SSE_INTRINSICS
+#if FLA_VECTOR_INTRINSIC_TYPE == FLA_SSE_INTRINSICS    \
+ || FLA_VECTOR_INTRINSIC_TYPE == FLA_AVX_INTRINSICS    \
+ || FLA_VECTOR_INTRINSIC_TYPE == FLA_AVX512_INTRINSICS
+  /* Jeff has not verified if this matters for AVX but
+   * Field knows that it did (does?) matter for SSE. */
   _MM_SET_FLUSH_ZERO_MODE( _MM_FLUSH_ZERO_ON );
 #endif
 
