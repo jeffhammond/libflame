@@ -91,6 +91,38 @@ typedef union
     double  d[2];
 } v2df_t;
 
+#elif FLA_VECTOR_INTRINSIC_TYPE == FLA_AVX_INTRINSICS
+
+#include "immintrin.h"
+
+typedef union
+{
+    __m256  v;
+    float   f[8];
+} v8sf_t;
+
+typedef union
+{
+    __m256d v;
+    double  d[4];
+} v4df_t;
+
+#elif FLA_VECTOR_INTRINSIC_TYPE == FLA_AVX512_INTRINSICS
+
+#include "immintrin.h"
+
+typedef union
+{
+    __m512  v;
+    float   f[16];
+} v16sf_t;
+
+typedef union
+{
+    __m512d v;
+    double  d[8];
+} v8df_t;
+
 #endif
 
 // --- FLAME object definitions -----------------------------------------------
